@@ -20,7 +20,17 @@ public class DriveTest : MonoBehaviour
     public AudioSource skidSound;
     public Transform skidTrailPrefab;
     public Transform[] skidTrails = new Transform[4];
+    public ParticleSystem smokePrefab;
+    ParticleSystem[] skidSmoke = new ParticleSystem[4];
 
+    void Start()
+    {
+        for (int i = 0;i<4;i++)
+        {
+            skidSmoke[i] = Instantiate(smokePrefab);
+            skidSmoke[i].Stop();
+        }
+    }
     public void StartSkidTrail(int i)
     {
         if (skidTrails[i] == null)
@@ -87,6 +97,8 @@ public class DriveTest : MonoBehaviour
                 {
                     skidSound.Play();
                     StartSkidTrail(i);
+                    skidSmoke[i].transform.position = WCs[i].transform.position - WCs[i].transform.up * WCs[i].radius;
+                    skidSmoke[i].Emit(1);
                 }
             }
             else

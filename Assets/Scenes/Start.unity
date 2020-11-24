@@ -350,6 +350,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4676916315452621165, guid: 28280b1dd8a6bff4ea3a01d97f1c9ee5,
         type: 3}
+    - target: {fileID: 6627262265104337187, guid: 181eb8340f17bc34da49b294e767a8c0,
+        type: 3}
+      propertyPath: smokePrefab
+      value: 
+      objectReference: {fileID: 2562545004825596019, guid: b9286796e741a5b419ec35067544701d,
+        type: 3}
     - target: {fileID: 6627262265104337212, guid: 181eb8340f17bc34da49b294e767a8c0,
         type: 3}
       propertyPath: m_LocalPosition.x

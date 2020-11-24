@@ -1412,6 +1412,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  smokePrefab: {fileID: 0}
 --- !u!1 &6627262265322732370
 GameObject:
   m_ObjectHideFlags: 0
