@@ -22,7 +22,7 @@ public class DriveTest : MonoBehaviour
     public Transform[] skidTrails = new Transform[4];
     public ParticleSystem smokePrefab;
     ParticleSystem[] skidSmoke = new ParticleSystem[4];
-
+    public GameObject brakeLight;
     void Start()
     {
         for (int i = 0;i<4;i++)
@@ -30,6 +30,7 @@ public class DriveTest : MonoBehaviour
             skidSmoke[i] = Instantiate(smokePrefab);
             skidSmoke[i].Stop();
         }
+        brakeLight.SetActive(false);
     }
     public void StartSkidTrail(int i)
     {
@@ -65,7 +66,16 @@ public class DriveTest : MonoBehaviour
         accel = Mathf.Clamp(accel, -5, 5);
         steer = Mathf.Clamp(steer, -1, 1) * maxSteerAngle;
         brake = Mathf.Clamp(brake, 0, 1) * maxBrakeTorque;
+
+        if (brake != 0)
+            brakeLight.SetActive(true);
+        else
+            brakeLight.SetActive(false);
+
+
         float thrustTorque = accel * torque;
+
+
         for (int i = 0; i < 4; i++)
         {
             WCs[i].motorTorque = thrustTorque;
